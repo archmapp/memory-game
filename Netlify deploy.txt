@@ -37,20 +37,25 @@ We’ll create a Github repository with any name we want. Then, we’ll push our
 https://github.com/archmapp/memory-game.git
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 …or create a new repository on the command line
-echo "first Ninja" >> README.md
+echo "" >> README.md
 git init
 git add README.md
-git commit -m "first commit"
+git commit -m "first Ninja"
 git branch -M main
 git remote add origin https://github.com/archmapp/memory-game.git
 git push -u origin main
-
-
-…or push an existing repository from the command line
-git remote add origin https://github.com/archmapp/memory-game.git
-git branch -M main
+このままでは、README.mdのみが送られるので、引き続きすべてをアップする
+git add .
+git commit -m "first Ninja ALL"
 git push -u origin main
 
+
+          （
+          …or push an existing repository from the command line
+          git remote add origin https://github.com/archmapp/memory-game.git
+          git branch -M main
+          git push -u origin main
+          ）
 
 
 The Github repo for our Netlify test.
@@ -67,12 +72,10 @@ If you do not have a Netlify account already, you can create a free one here.
 
 We’re going to log into Netlify with our already created Github account and follow the prompts to authorize Netlify Auth:
 
-A screenshot of the page for authorizing Netlify Auth with Github.
-After authorizing Netlify Auth, we are redirected to our Github teams page. Next, we’ll need to create a New Site from Git, as shown below:
 
-New site created on Github.
-Authorize Netlify to access repositories
-Still on the create a new site page, we would be prompted to authorize Netlify to access the Github repositories. We can choose to give Netlify access to the entire Github account, or we can give Netlify access to a specific repository by clicking on the “Configure Netlify on GitHub” button at the bottom of the page.
+    New site created on Github.
+    Authorize Netlify to access repositories
+    Still on the create a new site page, we would be prompted to authorize Netlify to access the Github repositories. We can choose to give Netlify access to the entire Github account, or we can give Netlify access to a specific repository by clicking on the “Configure Netlify on GitHub” button at the bottom of the page.
 
 The page giving us the option to configure Netlify on Github.
 Build options & deploy
@@ -83,6 +86,9 @@ Although this page comes pre-populated with the build step, please check that it
 Once this is done, we click on the good ol’ button Deploy Site, and Voila! We’ll see the site deployment in progress.
 
 Upon successful deployment, we can preview our site with the test domain it returns.
+～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
+https://jolly-lamport-67e201.netlify.app
+～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
 
 Our successfully deployed Netlify app.
 Configuring site domain

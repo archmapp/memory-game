@@ -5,7 +5,6 @@ import './QuickView.css'
 import $$ from '../../js/shortJS'
 
 function QuickView() {
-
 	useEffect(() => {
 		$$.oe(
 			document,
@@ -19,10 +18,9 @@ function QuickView() {
 		)
 		$$.qcLm('#quick', { selT: '.quickT' })
 		// bulmaQuickview.attach()
-
 	}, [])
 
-  return (
+	return (
 		<>
 			{/* <button type={props.type} className={styles.button} onClick={props.onClick}> */}
 
@@ -60,8 +58,10 @@ function QuickView() {
 												</td>
 											</tr>
 											<tr>
-												<th className="is-size-7 has-text-right">
-													しんけいすいじゃく・作成中
+												<th className="has-text-right">
+													<a href="https://jolly-lamport-67e201.netlify.app">
+														しんけいすいじゃく
+													</a>
 												</th>
 												<td className="td_width is-size-7">忍者トランプ</td>
 											</tr>
