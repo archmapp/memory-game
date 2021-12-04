@@ -1,0 +1,38 @@
+
+.title {
+  /* display: flex; */
+  flex-direction: column;
+}
+
+.title ul {
+  font-size: x-small;
+  margin-top: 5px;
+}
+
+.quickview-footer .arch {
+  font-size: small !important;
+}
+
+@media screen and (max-width: 600px) {
+  .title {
+    /* display: flex; */
+    flex-direction: column;
+  }
+
+  .title ul {
+    font-size: x-small;
+    margin-top: 5px;
+  }
+
+  .quickview-footer .arch {
+    font-size: small !important;
+  }
+}
+
+@media screen and (max-width: 420px) {
+
+  #orderB,
+  .quickview-body .message-body {
+    font-size: 0.75rem !important;
+  }
+}
