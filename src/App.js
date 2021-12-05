@@ -77,13 +77,27 @@ function App() {
 			<div className="hero is-primary is-bold">
 				<div className="hero-body h_hero">
 					<div className="">
-						{/* <div className="is-flex is-justify-content-space-between is-align-items-center"> */}
-						<h1 className="is-size-6-mobile is-size-5-tablet is-size-4-desktop has-tooltip-bottom has-tooltip-warning"
-						data-tooltip="Memory Card">
+						<h1
+							className="is-size-6-mobile is-size-5-tablet is-size-4-desktop has-tooltip-bottom has-tooltip-warning"
+							data-tooltip="You Tube Memory Card by Shaun忍者"
+						>
 							<span className="has-text-black-ter">Shaun忍者</span> のご紹介
 						</h1>
-						<h2 className="is-size-7-mobile is-size-6-tablet is-size-5-desktop">
-							しんけいすいじゃく
+						<h2 className="is-size-7-mobile is-size-6-tablet is-size-5-desktop is-flex is-justify-content-center is-align-items-center">
+							しんけいすいじゃく{' '}
+							<button
+								className="
+									button
+									is-danger is-small is-rounded is-outlined is-size-6 is-size-5-tablet ml-3
+								"
+								onClick={() =>
+									window.open(
+										'https://www.youtube.com/watch?v=ZCKohZwGZMw&list=PL4cUxeGkcC9iQ7g2eoNXHCJBBBz40S_Lm&index=2/'
+									)
+								}
+							>
+								解説ページ
+							</button>
 						</h2>
 						<p className="has-text-grey-dark is-size-7-mobile is-size-7-tablet is-size-6-desktop mt-3">
 							This memory-game is created by Shaun 忍者
