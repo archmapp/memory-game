@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		<style>
+			.container > div {
+				padding: 10px;
+				background-color: #d5f9cc;
+				border: 1px solid #ccc;
+			}
+			.container > span {
+				padding: 10px;
+				background-color: #d5f9cc;
+				border: 1px solid #ccc;
+			}
+
+			.container {
+				/* 親要素自体がinlineとなる */
+				display: inline-grid;
+				/* display: grid; */
+				grid-template-columns: 1fr 1fr;
+				/* grid-template-columns: 1fr 1fr 1fr; */
+			}
+			img {
+				/* display: block; */
+			}
+		</style>
+	</head>
+
+	<body>
+		<span class="item2">item2</span>
+		<div class="container">
+			<div class="item1">
+				item1 <img src="./cover.png" alt="cover" />
+				<img src="./helmet-1.png" alt="cover" />
+				<img src="./sword-1.png" alt="cover" />
+			</div>
+			<div class="item2">item2</div>
+			<div class="item3">item3</div>
+			<div class="item4">item4</div>
+			<div class="item5">item5</div>
+			<div class="item6">item6</div>
+			<div class="item7">item7</div>
+		</div>
+		<hr />
+		<span class="item2">item2</span>
+		<div class="container">
+			<span class="item1"
+				>item1 <img src="./cover.png" alt="cover" />
+				<img src="./helmet-1.png" alt="cover" />
+				<img src="./sword-1.png" alt="cover" />
+			</span>
+			<span class="item2">item2</span>
+			<span class="item3">item3</span>
+			<span class="item4">item4</span>
+			<span class="item5">item5</span>
+			<span class="item6">item6</span>
+			<span class="item7">item7</span>
+		</div>
+	</body>
+</html>

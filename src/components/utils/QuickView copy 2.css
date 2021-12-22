@@ -1,0 +1,108 @@
+.qv_title {
+  display: flex;
+  justify-content: space-between;
+  background: #fed;
+  padding: 0px 10px;
+  border-radius: 3px 3px 0 0;
+}
+
+.qv_title h3 {
+  color: green;
+  font-family: 'メイリオ',
+    'Meiryo',
+    sans-serif;
+}
+
+.qv_title h4 {
+  color: rgb(120, 175, 37);
+}
+
+.qv_title span span {
+  color: rgb(0, 170, 255);
+  font-weight: bold;
+}
+
+.qv_title ul,
+.qv_body ul {
+  list-style: disc;
+  text-align: left;
+}
+
+.qv_title li {
+  font-weight: 500;
+}
+
+section .qv_title {
+  color: #555;
+  font-weight: bold;
+}
+
+section .qv_title span {
+  color: #999;
+  font-weight: bold;
+}
+
+.quickview a:hover {
+  background: #E3C800;
+  color: #fff !important;
+  padding: 1px 2px;
+}
+
+.qv_body .message-body {
+  font-size: .8rem;
+  line-height: 1.4rem;
+}
+
+.qv_footer {
+  font-size: 18px;
+}
+
+@media screen and (max-width: 705px) {
+  .qv_body .message-body {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  /* .qv_title {
+    flex-direction: column;
+  } */
+
+  .qv_title ul {
+    font-size: 10px;
+    margin-top: 5px;
+  }
+
+  .qv_body .message-body {
+    font-size: 0.6rem;
+  }
+
+  .qv_footer {
+    font-size: 16px;
+  }
+
+  .qv_footer .arch {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .qv_body .message-body {
+    font-size: 0.5rem;
+  }
+}
+
+.f_center,
+.f_centerR {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.f_centerC {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

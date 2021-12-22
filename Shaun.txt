@@ -1,2 +1,8 @@
 Shaun 
 
+https://github.com/iamshaunjp/React-Firebase/tree/lesson-68
+
+[magic-memory]
+lesson 58 ~ 68
+
+

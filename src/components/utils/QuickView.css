@@ -1,5 +1,4 @@
-
-.title {
+.f_around {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -8,105 +7,87 @@
   border-radius: 6px 6px 0 0;
 }
 
-.title h3 {
-  color: green;
-  font-family: 'メイリオ',
-    'Meiryo',
-    sans-serif;
-}
-
-.title h4 {
-  color: rgb(120, 175, 37);
-}
-
-.title span {
-  color: #aaa;
-  font-weight: bold;
-}
-
-footer .title {
+.qv_f .f_around {
   color: #555;
   font-weight: bold;
 }
 
-footer .title span {
+.qv_f .f_around span {
   color: #999;
   font-weight: bold;
 }
 
-a:hover {
+.quickview a:hover {
   background: #E3C800;
   color: #fff !important;
   padding: 1px 2px;
 }
 
-.title span span {
-  color: rgb(0, 170, 255);
-  font-weight: bold;
-}
-
-.title li {
-  font-weight: 500;
-}
-
-.title ul,
-.quickview-body ul {
+.qv_b ul {
   list-style: disc;
   text-align: left;
 }
 
-.quickview-body .message-body {
+.qv_b .message-body {
   font-size: .8rem;
   line-height: 1.4rem;
 }
 
-.quickview-footer {
-  font-size: medium;
+.qv_f {
+  font-size: 1rem;
 }
 
 @media screen and (max-width: 705px) {
-  .quickview-body .message-body {
+  .qv_b .message-body {
     font-size: 0.7rem;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .title {
-    /* display: flex; */
+  .f_around {
     flex-direction: column;
   }
 
-  .title ul {
-    font-size: x-small;
-    margin-top: 5px;
+  .qv_h {
   }
 
-  .quickview-header {
-    height: 2rem !important;
-  }
-
-  .quickview-body .message-body {
+  .qv_b .message-body {
     font-size: 0.6rem;
   }
 
-  .quickview-footer {
-    font-size: small;
+  .qv_f {
+    font-size: 0.8rem;
   }
 
-  .quickview-footer .arch {
-    font-size: small;
+  .qv_f .arch {
+    font-size: 0.8rem;
   }
 }
 
 @media screen and (max-width: 420px) {
-  .quickview-body .message-body {
+  .qv_b .message-body {
     font-size: 0.5rem;
   }
 }
 
-.foot {
+.f_center,
+.f_centerR {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.f_centerC {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.f_aligncenter,
+.f_aligncenterR {
+  display: flex;
+  flex-direction: row;
   align-items: center;
 }

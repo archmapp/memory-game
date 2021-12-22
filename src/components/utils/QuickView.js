@@ -29,7 +29,7 @@ function QuickView() {
 					{/* <div id="quickviewDefault" className="quickview quickT my-1"> */}
 					{/* <div className="box has-background-primary p-2"> */}
 					<div className="box py-2 px-3" style={{ backgroundColor: '#375A7F' }}>
-						<header className="is-flex is-justify-content-space-between p-2">
+						<header className="qv_h is-flex is-justify-content-space-between p-2">
 							<p className="is-size-5 has-text-white">ゲーム一覧</p>
 							<span
 								className="delete deleteQV"
@@ -39,7 +39,7 @@ function QuickView() {
 							></span>
 						</header>
 
-						<div className="quickview-body">
+						<div className="quickview-body qv_b">
 							<article className="message is-primary mb-0">
 								<div className="message-header pb-1">
 									<p>リンク先</p>
@@ -48,30 +48,44 @@ function QuickView() {
 									<table className="table is-hoverable">
 										<tbody>
 											<tr>
-												<th className="has-text-right">
+												<th className="has-text-right is-flex-grow-5">
 													<a href="https://affectionate-wozniak-de01a2.netlify.app/">
 														初めての【 けいさん 】
 													</a>
 												</th>
-												<td className="td_flex-direction is-size-7">
+												<td className="td_flex-direction is-size-7 is-flex-grow-4">
 													だれでもできる
 												</td>
 											</tr>
 											<tr>
-												<th className="has-text-right">
+												<th className="has-text-right is-flex-grow-5">
 													<a href="https://jolly-lamport-67e201.netlify.app">
 														しんけいすいじゃく
 													</a>
 												</th>
-												<td className="td_width is-size-7">忍者トランプ</td>
+												<td className="td_width is-size-7 is-flex-grow-4">
+													忍者トランプ
+												</td>
 											</tr>
 											<tr>
-												<th className="has-text-right">
+												<th className="has-text-right is-flex-grow-5">
 													<a href="https://archmapp.github.io/ippatsu/">
 														一発勝負 <span style={{ color: 'red' }}>❣</span>
 													</a>
 												</th>
-												<td className="td_boxes is-size-7">記憶ゲーム</td>
+												<td className="td_boxes is-size-7 is-flex-grow-4">
+													記憶ゲーム
+												</td>
+											</tr>
+											<tr>
+												<th className="has-text-right is-flex-grow-5">
+													<a href="https://space-game2.netlify.app">
+														いん石を狙え <span style={{ color: 'red' }}>❣</span>
+													</a>
+												</th>
+												<td className="td_boxes is-size-7 is-flex-grow-4">
+													宇宙の旅
+												</td>
 											</tr>
 										</tbody>
 									</table>
@@ -104,13 +118,13 @@ function QuickView() {
 								</div>
 							</article>
 						</div>
-						<footer className="quickview-footer has-background-primary mt-4 mt-2 pb-3">
+						<footer className="quickview-footer qv_f has-background-primary mt-4 mt-2 pb-3">
 							<div
 								className="mt-3"
 								style={{ textAlign: 'center', width: '500px' }}
 							>
 								<div className="is-half-mobile is-one-quarter-desktop">
-									<h6 className="title arch is-size-6 pb-1 pt-1 mb-4">
+									<h6 className="f_around arch is-size-6 pb-0 pt-1 mb-4">
 										提供:
 										<span className="is-size-5 my-1">アーキエムアップ</span>
 									</h6>
