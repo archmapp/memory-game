@@ -30,8 +30,8 @@ https://github.com/archmapp/hajimeteno-keisan.git
 
 
 C:\Users\Owner\Desktop\Nodejs\React\Kyle-React-Flashcard\public\index.html
-https://archmapp.github.io/ippatsu/
-github(https://archmapp.github.io/ippatsu/)
+✖　https://archmapp.github.io/ippatsu/
+✖　github(https://archmapp.github.io/ippatsu/)
 一発勝負❣ トランプゲーム 記憶ゲーム react Bulma
 https://github.com/archmapp/ippatsu.git
 
@@ -42,10 +42,15 @@ https://app.netlify.com/sites/flashcard2/overview
 
 
 C:\Users\Owner\Desktop\Nodejs\ReactN\Ninja\public\index.html
+C:\Users\Owner\Desktop\Nodejs\ReactN\Ninja
 https://jolly-lamport-67e201.netlify.app/
 記憶ゲーム しんけいすいじゃく react Bulma 忍者
 https://github.com/archmapp/memory-game.git
 
+
+C:\Users\Owner\Desktop\Nodejs\React\game\Space-Game-master
+いん石を狙え
+Website URL:       https://flashcard2.netlify.app
 
 
 C:\Users\Owner\Desktop\Nodejs\Bulma\bulmaJS\src\sub\flex\Diagram.html
