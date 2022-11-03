@@ -1,0 +1,190 @@
+
+https://github.com/facebook/create-react-app#create-react-app--
+  facebook/create-react-app
+
+
+https://create-react-app.dev/
+  Create React App
+
+
+
+
+npx create-react-app my-app
+
+You are running `create-react-app` 4.0.3, which is behind the latest release (5.0.0).
+
+We no longer support global installation of Create React App.
+
+対処法：
+  npm uninstall -g create-react-app
+  npx clear-npx-cache
+
+
+https://github.com/timarney/react-app-rewired
+
+/* config-overrides.js */
+
+module.exports = function override(config, env) {
+  //do stuff with the webpack config...
+  return config;
+}
+
+
+
+https://www.aizulab.com/blog/customize-create-react-app/
+Create React Appのwebpack環境をejectしないでカスタマイズする方法
+
+webpack環境をオーバーライドするのに必要なパッケージをインストール -D
+  react-app-rewired
+  customize-cra
+
+npm install react-app-rewired customize-cra --save-dev
+
+package.json の scripts 項を修正する。
+
+...
+    "react": "17.0.2",        バージョンも重要！（✖ "^16.13.1"）
+    "react-dom": "17.0.2",
+    "react-scripts": "4.0.0"  バージョンも重要！（✖ "^3.4.1"）
+...
+"scripts": {
+  "start": "react-app-rewired start", 👈
+  "build": "react-app-rewired build", 👈
+  "test": "react-app-rewired test", 👈
+  "eject": "react-scripts eject"
+},
+...
+
+
+npm install babel-plugin-root-import --save-dev
+
+[config-overrides.js] に記述する
+まず冒頭でインストールしておいた customize-cra のヘルパー関数を分割代入で読み込む。続いて override メソッドの引数に、addBabelPlugins メソッドでプラグインを設定する。
+
+const { override, addBabelPlugins } = require('customize-cra');
+
+module.exports = override(
+  ...addBabelPlugins([
+    'root-import',
+    {
+      rootPathPrefix: '~',
+      rootPathSuffix: 'src',
+    },
+  ])
+);
+果たして、モジュールの import パスに alias を設定できた。
+
+
+https://blog.mitsuruog.info/2018/06/react-app-rewired-typescript
+  react-create-appで作成したTypeScriptのプロジェクトの
+  webpack.configを上書きする
+
+
+(実践例) Sass設定のカスタマイズ
+では、既存のwebpack.configのSass設定をカスタマイズして
+sass-loaderを追加してみましょう。
+
+react-create-appの公式では別の方法が推奨されていますが、
+自分はこの昔ながらのやり方が好きなのです。
+
+まず、Sass設定を上書きするrewireSass関数を作成します。
+
+// config-overrides.js
+const rewired = require('react-app-rewired');
+
+function rewireSass(config) {
+  const cssLoader = rewired.getLoader(
+    config.module.rules,
+    // ここでloaderをフィルタする
+    rule => rule.test && String(rule.test) === String(/\.css$/)
+  );
+
+  // 新しいsass-loaderの設定
+  const sassLoader = {
+    test: /\.scss$/,
+    use: [...(cssLoader.loader || cssLoader.use), 'sass-loader']
+  };
+
+  // sass-loaderを追加する
+  const oneOf = config.module.rules.find(rule => rule.oneOf).oneOf;
+  oneOf.unshift(sassLoader);
+
+  return config;
+}
+react-app-rewiredのパッケージにgetLoaderというloaderをpick upする関数があるので、これを使って既存のconfigから上書きするターゲットのloaderだけを抽出します。
+
+あとは、コードを見てもらうとわかると思うのですが、普通のJavaScriptプログラミングです。
+途中、console.logなどを出しながら途中経過を見てカスタマイズしていきます。
+
+なので、将来react-create-app側のwepack.configが変わったり、Webpack自体のバージョンが上がった場合は、容易に動作しなくなると思います。
+
+このrewireSass関数をconfig-overrides.jsに追加します。
+
+// config-overrides.js
+
+function rewireSass(config) {
+  ...
+}
+
+module.exports = {
+  // 開発サーバーのカスタマイズポイント
+  devServer: function (configFunction) {
+    return function (proxy, allowedHost) {
+      // デフォルト設定の開発サーバーを作成する
+      const config = configFunction(proxy, allowedHost);
+
+      // この辺でカスタマイズする
+
+      return config;
+    }
+  },
+  // `npm test`のカスタマイズポイント
+  jest: function (config) {
+
+    // この辺でカスタマイズする
+
+    return config;
+  },
+  // webpack.configのカスタマイズポイント
+  webpack: function (config, env) {
+
+    // この辺でカスタマイズする
+    config = rewireSass(config, env); // <--------- ここに追加
+
+    return config;
+  },
+};
+SassファイルがWebpackで変換されていれば、無事OKです。
+
+
+ERROR in src\App.js
+  Line 19:23:  '$$' is not defined  no-undef
+/* eslint-disable no-undef */
+
+[package.json]
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-scripts": "4.0.0"
+...
+    "eslintConfig": {
+      "extends": [
+        "react-app",
+        "react-app/jest"
+      ],
+      "env": {
+        "browser": true,
+        "shortJS": true
+      }
+    },
+// https://techblog.lclco.com/entry/2016/09/26/003511
+ESLintでnot definedが出るときに確認すること
+
+.eslintrcファイル
+    {
+      "extends": "airbnb",
+      "env": {
+        "browser": true,
+        "jquery" : true
+      },
+    }
+

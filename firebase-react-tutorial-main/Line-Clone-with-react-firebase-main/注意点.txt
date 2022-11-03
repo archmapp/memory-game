@@ -1,0 +1,38 @@
+（2021年8月25日）にこれまでベータ版として扱われていた、
+    Firebase JavaScript SDK (v9.0.0)が正式にリリース
+
+v9以前のハンズオンや教材通りに実装したい方は、
+    のちに紹介するCompatライブラリの使用
+
+
+[今回のv9リリースの主な目的]
+”必要なものだけをインポート” するアプローチを提供すること。
+
+[変わったこと]
+それを達成するために2つの新しいライブラリが導入されました。
+
+・Modular - 不要なコードを取り除いてくれるツリーシェイク（tree-shaking）を実行し、ファイルサイズをできるだけ小さく、webアプリの読み込みを素早くできる様にするAPIサーフェス。
+
+・【Compat】 - 一度にFirebaseのコードのすべてを変更することなく、バージョン9にアップグレードすることができ、バージョン8 SDKと完全な互換性がありおなじみのAPIサーフェス。
+  今回導入されたCompatライブラリでは残念なことにModular Web SDKのツリーシェイクの恩恵が得られません。
+
+[Compat]
+v8系のコードをv9でも使える様にするためには、基本的にimport時のpathにcompatを加えるだけでOKです。
+
+    import firebase from 'firebase/compat/app'; //compatをpathに加える
+    import 'firebase/compat/auth';　//compatをpathに加える
+    import { onAuthStateChanged } from 'firebase/auth';
+
+    const firebaseApp = firebase.initializeApp({ /* config */ });
+    const auth = firebaseApp.auth();
+    onAuthStateChanged(auth, user => { console.log(user); });
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+firebase　 Captain Cat
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+https://zenn.dev/hiro__dev?tab=scraps
+Captain Catさんのスクラップ一覧 - Zenn
+
+
+

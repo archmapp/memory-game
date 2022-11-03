@@ -1,5 +1,5 @@
 .App {
-  max-width: 660px;
+  max-width: 700px;
   /* max-width: 860px; */
   margin: 1px auto;
 }
@@ -51,6 +51,10 @@ button:hover {
   padding: 15px 15px;
 }
 
+.f430_Q {
+    font-size: 1.3rem !important;
+}
+
 @media screen and (max-width: 705px) {
   .h_hero {
     padding: 10px 10px;
@@ -60,9 +64,14 @@ button:hover {
   #orderB {
     font-size: 1rem !important;
   }
+
+  .f430_Q2,
+  .f430_Q1 {
+    font-size: 1.1rem !important;
+  }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 430px) {
   .h_hero {
     padding: 7px 7px;
     font-size: 0.6rem !important;
@@ -70,5 +79,17 @@ button:hover {
 
   #orderB {
     font-size: 0.75rem !important;
+  }
+
+  .f430_title {
+    font-size: 1.75rem !important;
+  }
+
+  .f430_Q2 {
+    font-size: 0.85rem;
+  }
+
+  .f430_Q3 {
+    display: none;
   }
 }

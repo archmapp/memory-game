@@ -1,0 +1,25 @@
+img.fit {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  margin-right: 3%;
+}
+
+div img.width-height {
+  width: 250px;
+  height: 250px;
+  /* object-fit: cover; */
+  margin-right: 3%;
+}
+
+div img {
+  /* width: 250px;
+  height: 250px; */
+  /* object-fit: cover; */
+  margin-right: 3%;
+}
+
+/* Layout */
+body {
+  padding: 5%;
+}

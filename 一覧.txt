@@ -8,12 +8,49 @@ Bulma入門 javascript Handlebars Electron Angular React
 
 
 
-C:\Users\Owner\Desktop\Nodejs\Bulma\bulmaJSR\1\app\index.html
 https://www.archmapp.tech/
 第二版・Bulmaと共に！
 Bulma・React入門 javascript
+
+  npm run build
+  npm run netlify-prod
+～～～
+Unique Deploy URL: 
+https://622456d9d9b8df1caff0742a--bulmajsr.netlify.app        
+Website URL:       https://www.archmapp.tech
+https://app.netlify.com/sites/bulmajsr/settings/general
+
+
 https://github.com/archmapp/bulmaJSR.git
 
+
+
+
+✖　C:\Users\Owner\Desktop\Nodejs\Bulma\bulmaJSR\1\app\index.html
+✖　https://www.archmapp.tech/
+✖　第二版・Bulmaと共に！
+✖　Bulma・React入門 javascript
+✖　https://github.com/archmapp/bulmaJSR.git
+
+C:\Users\Owner\Desktop\Nodejs\Bulma\bulmaJSR\netlify.txt
+https://bulmajsr.netlify.app
+https://www.archmapp.tech/
+
+[ドメインの設定]
+  お名前.com と Netlify　両方に設定
+
+
+    "netlify": "netlify deploy",
+    "netlify-prod": "netlify deploy --prod",
+
+
+npm run netlify
+npm run netlify-prod
+? Publish docs
+? Publish directory C:\Users\Owner\Desktop\Nodejs\Bulma\bulmaJSR\docs
+Deploy path: C:\Users\Owner\Desktop\Nodejs\Bulma\bulmaJSR\docs
+
+Website URL:       https://bulmajsr.netlify.app
 
 
 
@@ -23,17 +60,20 @@ https://archmapp.github.io/about2/
 https://github.com/archmapp/about2.git
 
 
-C:\Users\Owner\Desktop\Nodejs\mean\BradWebpack\BRAD_react-sass-webpack\2 route slide\app\index.html
+C:\Users\Owner\Desktop\Nodejs\mean\BradWebpack\BRAD_react-sass-webpack\2 route slide\
 https://www.archmapp.tech/
+https://affectionate-wozniak-de01a2.netlify.app
 初めての【 けいさん 】 たし算・ひき算・かけ算
 https://github.com/archmapp/hajimeteno-keisan.git
+https://affectionate-wozniak-de01a2.netlify.app/
 
 
-C:\Users\Owner\Desktop\Nodejs\React\Kyle-React-Flashcard\public\index.html
+
+✖　C:\Users\Owner\Desktop\Nodejs\React\Kyle-React-Flashcard\public\index.html
 ✖　https://archmapp.github.io/ippatsu/
 ✖　github(https://archmapp.github.io/ippatsu/)
-一発勝負❣ トランプゲーム 記憶ゲーム react Bulma
-https://github.com/archmapp/ippatsu.git
+✖　一発勝負❣ トランプゲーム 記憶ゲーム react Bulma
+✖　https://github.com/archmapp/ippatsu.git
 
 C:\Users\Owner\Desktop\Nodejs\React\Kyle-React-Flashcard_Netlify2\public\index.html
 https://flashcard2.netlify.app
@@ -46,11 +86,67 @@ C:\Users\Owner\Desktop\Nodejs\ReactN\Ninja
 https://jolly-lamport-67e201.netlify.app/
 記憶ゲーム しんけいすいじゃく react Bulma 忍者
 https://github.com/archmapp/memory-game.git
+　github経由
+
+
+C:\Users\Owner\Desktop\Nodejs\React\TUTORIALS\react-tic-tac-toe-hooks-master
+Unique Deploy URL: https://622372b5f160c80f1e61fddf--archtictactoe.netlify.app
+Website URL:       https://archtictactoe.netlify.app
+ティック・タック・トゥ Tic Tac Toe 
 
 
 C:\Users\Owner\Desktop\Nodejs\React\game\Space-Game-master
 いん石を狙え
-Website URL:       https://flashcard2.netlify.app
+Website URL: https://space-game2.netlify.app/
+
+
+C:\Users\Owner\Desktop\Nodejs\ReactNext\nextjs-blog\Bulma\games\nyan\
+URL: https://isnt-archmapp-awesome.netlify.app/
+にゃんにゃん動画のご紹介　Next.js 版
+以上、githubは archmapp版
+
+  内容は上とほぼ同じ以上、githubは archmapp77版
+  [archmapp77@gmail.com]
+    git remote -v
+    origin  https://github.com/archmapp77/nyan2.git (fetch)
+    origin  https://github.com/archmapp77/nyan2.git (push) 
+      これは、
+          https://github.com/archmapp/nyan.git
+      のdummy版（archmapp77）
+
+    $ "C:\bin\gitpush.bat" archmapp77 nyannyan-static pikachu 追加
+    a	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
+
+    C:\Users\Owner\Desktop\Nodejs\ReactNext\nextjs-blog\Bulma\games\nyan
+    To https://github.com/archmapp77/nyan2.git
+    https://nyan2-archmapp77.vercel.app/
+
+
+
+C:\Users\Owner\Desktop\Nodejs\React\codesandbox\cs1\react-bulma1\redux-toolkit-cat
+Unique Deploy URL: https://624312fd60dede0f77ccb341--isnt-archmapp-awesome.netlify.app
+Website URL:       https://isnt-archmapp-awesome.netlify.app/
+にゃんにゃん動画のご紹介　旧版
+
+
+To https://github.com/archmapp77/nextjs-pokemon.git
+nextjs-pokemon-d6vzyj56y-archmapp77.vercel.app
+Website URL:       https://nextjs-pokemon-kappa.vercel.app/
+
+ポケモン画像一覧　Next.js 版
+
+
+太陽系
+C:\Users\Owner\Desktop\Nodejs\css\CSS\animations\太陽系.html
+C:\Users\Owner\Desktop\Nodejs\css\CSS\animations\太陽系2.html
+https://archmapp.github.io/html/
+https://archmapp.github.io/html/%E5%A4%AA%E9%99%BD%E7%B3%BB2.html
+https://archmapp.github.io/html/太陽系2.html
+  git remote -v
+  origin  https://github.com/archmapp/html.git (fetch)
+  origin  https://github.com/archmapp/html.git (push)
+
+
 
 
 C:\Users\Owner\Desktop\Nodejs\Bulma\bulmaJS\src\sub\flex\Diagram.html

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		<style>
+			.container {
+				border: 2px solid #ccc;
+				padding: 10px;
+				width: 20em;
+			}
+
+			.item {
+				width: -moz-fit-content;
+				/* width: fit-content; */
+				background-color: #8ca0ff;
+				padding: 5px;
+				margin-bottom: 1em;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="item">Item</div>
+			<div class="item">Item with more text in it.</div>
+			<div class="item">
+				Item with more text in it, hopefully we have added enough text so the
+				text will start to wrap.
+			</div>
+		</div>
+	</body>
+</html>
+
+<!-- 
+  fit-content
+fit-content は fit-content(stretch) として動作します。実際には、ボックスは利用可能な空間を使用しますが、max-content 以上にはならないことを意味します。
+
+width, height, min-width, min-height, max-width, max-height のレイアウトされたボックスの大きさとして使用される場合、最大寸法と最小寸法は、コンテンツの寸法を参照します。
+
+Note: CSS Sizing の仕様では、fit-content() という関数も定義されています。このページではキーワード版について詳しく説明します。
+ -->
+
+ <!-- 
+   fit-content()
+fit-content() は CSS の関数で、指定された寸法を min(max-content, max(min-content, 引数)) の式に従って有効な範囲の寸法に収めます。
+
+この関数は CSS グリッドのプロパティにおいて、トラックの寸法を max-content で定義された最大寸法と auto で定義された最小寸法との間で、 auto と似た方法 (すなわち minmax(auto, max-content)) で計算しますが、 auto の最小値よりも大きい場合は引数がトラックの寸法になるという点が異なります。
+  -->
+
+  <!-- 
+    https://coliss.com/articles/build-websites/operation/css/intrinsic-sizing-in-css.html
+
+    fit-content, min-content, max-contentの便利な使い方、CSSでコンテンツに依存してサイズを決める
+
+    ~~~~~~~~~
+    内因性サイジング: min-content
+min-content値は内因性の最小幅で、要素のコンテンツで最も長い単語の幅に等しくなります。
+
+    内因性サイジング: max-content
+max-content値は内因性の優先幅で、コンテンツの幅に等しくなります。
+
+    内因性サイジング: fit-content
+fit-contentは、min-contentとmax-contentを組み合わせたものです。
+
+fit-contentはmax-contentを使用します。
+利用可能領域 < max-contentでない限り利用可能領域を使用し、
+利用可能領域 > min-contentでない限りmin-contentを使用します。
+
+    利用可能領域（available）は、ビューポートで使用可能なスペースのことです。
+   -->

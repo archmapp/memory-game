@@ -10,14 +10,12 @@ function QuickView() {
 			document,
 			(e) => {
 				if (e.key === 'Escape') {
-					// console.log(e.key)
 					$$.qcL('.quickT')
 				}
 			},
 			'keyup'
 		)
 		$$.qcLm('#quick', { selT: '.quickT' })
-		// bulmaQuickview.attach()
 	}, [])
 
 	return (
@@ -25,7 +23,7 @@ function QuickView() {
 			{/* <button type={props.type} className={styles.button} onClick={props.onClick}> */}
 
 			<article>
-				<div className="quickview quickT">
+				<div className="quickview quickT" style={{ overflowY: 'scroll' }}>
 					{/* <div id="quickviewDefault" className="quickview quickT my-1"> */}
 					{/* <div className="box has-background-primary p-2"> */}
 					<div className="box py-2 px-3" style={{ backgroundColor: '#375A7F' }}>
@@ -44,7 +42,7 @@ function QuickView() {
 								<div className="message-header pb-1">
 									<p>リンク先</p>
 								</div>
-								<div className="message-body is-size-6 py-2 px-0">
+								<div className="message-body is-size-6 py-2 px-0 is-flex is-justify-content-center">
 									<table className="table is-hoverable">
 										<tbody>
 											<tr>
@@ -53,7 +51,7 @@ function QuickView() {
 														初めての【 けいさん 】
 													</a>
 												</th>
-												<td className="td_flex-direction is-size-7 is-flex-grow-4">
+												<td className="td_flex-direction is-size-7 is-flex-grow-4 pt-2">
 													だれでもできる
 												</td>
 											</tr>
@@ -63,7 +61,7 @@ function QuickView() {
 														しんけいすいじゃく
 													</a>
 												</th>
-												<td className="td_width is-size-7 is-flex-grow-4">
+												<td className="td_width is-size-7 is-flex-grow-4 pt-2">
 													忍者トランプ
 												</td>
 											</tr>
@@ -73,8 +71,18 @@ function QuickView() {
 														一発勝負 <span style={{ color: 'red' }}>❣</span>
 													</a>
 												</th>
-												<td className="td_boxes is-size-7 is-flex-grow-4">
+												<td className="td_boxes is-size-7 is-flex-grow-4 pt-2">
 													記憶ゲーム
+												</td>
+											</tr>
+											<tr>
+												<th className="has-text-right is-flex-grow-5 is-size-6">
+													<a href="https://archtictactoe.netlify.app/">
+														ティック・タック・トゥ
+													</a>
+												</th>
+												<td className="td_boxes is-size-7 is-flex-grow-4 pt-2">
+													三目並べ
 												</td>
 											</tr>
 											<tr>
@@ -83,38 +91,42 @@ function QuickView() {
 														いん石を狙え <span style={{ color: 'red' }}>❣</span>
 													</a>
 												</th>
-												<td className="td_boxes is-size-7 is-flex-grow-4">
+												<td className="td_boxes is-size-7 is-flex-grow-4 pt-2">
 													宇宙の旅
+												</td>
+											</tr>
+											<tr>
+												<th className="has-text-right is-flex-grow-5">
+													<a href="https://nyan-gules.vercel.app/">
+														にゃんにゃん動画
+													</a>
+												</th>
+												<td className="td_boxes is-size-7 is-flex-grow-4 pt-2 has-text-danger">
+													Next.js 版
+												</td>
+											</tr>
+											<tr>
+												<th className="has-text-right is-flex-grow-5">
+													<a href="https://isnt-archmapp-awesome.netlify.app/">
+														にゃんにゃん動画
+													</a>
+												</th>
+												<td className="td_boxes is-size-7 is-flex-grow-4 pt-2">
+													旧版
+												</td>
+											</tr>
+											<tr>
+												<th className="has-text-right is-flex-grow-5">
+													<a href="https://nextjs-pokemon-kappa.vercel.app/">
+														ポケモン画像一覧
+													</a>
+												</th>
+												<td className="td_boxes is-size-7 is-flex-grow-4 pt-2 pt-2 has-text-danger">
+													Next.js 版
 												</td>
 											</tr>
 										</tbody>
 									</table>
-								</div>
-							</article>
-							<article className="message is-primary mt-3">
-								<div className="message-header py-2 is-justify-content-center">
-									<p className="is-size-7">
-										<span>このビューの開閉について (トグル操作)</span>
-									</p>
-								</div>
-								<div className="message-body py-1 ml-5">
-									{/* <div className="message-body py-1 ml-5 is-size-7"> */}
-									<ul>
-										<li>
-											画面下の［
-											<span className="has-background-primary has-text-white">
-												ゲーム一覧
-											</span>
-											］ボタンをクリックして開く
-										</li>
-										<li>
-											[
-											<span className="has-background-primary has-text-white">
-												ESC
-											</span>
-											］キーを押して開閉することも出来ます
-										</li>
-									</ul>
 								</div>
 							</article>
 						</div>
@@ -131,7 +143,7 @@ function QuickView() {
 									<p>
 										<a href="http://www.archmapp.tech/">
 											<strong className="is-success px-3">
-												第二版・Bulmaと共に！
+												第三版・Bulmaと共に！
 											</strong>
 										</a>
 									</p>
@@ -140,7 +152,7 @@ function QuickView() {
 											className="is-size-5 px-2 mb-3"
 											style={{ background: '#e3c800' }}
 										>
-											Bulma Project
+											Next.js 予定
 										</strong>
 										<p className="mt-3 is-size-7">北九州</p>
 

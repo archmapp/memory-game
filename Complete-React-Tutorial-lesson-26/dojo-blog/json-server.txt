@@ -1,0 +1,40 @@
+
+https://www.youtube.com/watch?v=mAqYJF-yxO8&list=PL4cUxeGkcC9i2v2ZqJgydXIcRq_ZizIdD&index=2
+Up & Running with JSON Server (part 1,2)
+C:\Users\Owner\Desktop\Nodejs\ReactN\Ninja\Complete-React-Tutorial-lesson-26\json-server-tutorial-final-files
+
+
+https://www.youtube.com/watch?v=j942wKiXFu8&list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d&index=2
+Full React Tutorial #1
+C:\Users\Owner\Desktop\Nodejs\ReactN\Ninja\Complete-React-Tutorial-lesson-26\dojo-blog
+
+npm i -g json-server
+
+json-server --watch data/db.json  (--port 8000)
+json-server --watch data/db.json --port 8000
+~~~~~~~~~~~~~~~~~~~~~
+npx json-server --watch data/db.json --port 8000
+~~~~~~~~~~~~~~~~~~~~~
+
+
+~~~~~~~~
+  Resources
+  http://localhost:3000/posts
+  http://localhost:3000/polls
+
+  Home
+  http://localhost:3000
+
+
+  Type s + enter at any time to create a snapshot of the database
+  Watching...
+
+s
+  Saved snapshot to db-1659926026486.json
+
+GET /posts?_sort=likes&_order=desc 200 9.926 ms - -
+~~~~~~~~
+
+
+https://www.youtube.com/watch?v=mAqYJF-yxO8&list=PL4cUxeGkcC9i2v2ZqJgydXIcRq_ZizIdD&index=1
+  https://www.youtube.com/watch?v=mAqYJF-yxO8&list=PL4cUxeGkcC9i2v2ZqJgydXIcRq_ZizIdD&index=1

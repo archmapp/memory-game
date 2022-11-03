@@ -1,0 +1,336 @@
+
+https://hail2u.net/blog/webdesign/how-to-use-bang-default-flag-in-sass-and-how-it-works.html
+
+Sassの!defaultフラグの使い方と使われ方
+  変数の値を指定する時、!defaultというフラグを付けておくことにより、変数にまだ値が割り当てられていない時のみ値を割り当てるようにすることができます。どういうことかというと、もし変数に既に値が割り当てられていた場合は再割当てされることはありませんが、まだ値が割り当てられていない場合は指定された値がセットされるということです。
+
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  !defaultを使った柔軟なライブラリ [_font.scss]
+    !defaultフラグを使って再利用しやすいように書き直してみましょう。
+      $font-size: 16px !default;
+      $line-height: 1.5 !default;
+      $font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif !default;
+
+      body {
+        font: $font-size/#{$line-height} $font-family;
+      }
+
+  利用先では以下のように書くことができます。
+
+    $font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+
+    @import "font";
+  $font-familyを@importの前で設定してやることに注意してください。こうすることによってライブラリが変数が設定済みであることを認識し、ライブラリ側での変数設定が行われないようになります。
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  [settings.jsn]
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            // "savePath": "/dist/css/"
+            // "savePath": "./css/",
+            // "savePath": "./",
+            "savePath": "~/../css/"
+        }
+  
+  sass-convert --from sass --to scss @extend.sass @extend.scss
+
+  https://www.evoworx.co.jp/blog/sass-convert/
+    -F　変換前のファイル形式を指定（css, scss, sass）
+    -T　変換後のファイル形式を指定（css, scss, sass）
+    -R　再帰的に処理
+
+    sass-convert -F 変換前の形式 -T 変換後の形式 変換したいファイルまたはディレクトリ 変換後のファイルまたはディレクトリ
+      sass-convert -F sass -T scss src/sass/style.sass src/scss/style.scss
+      sass-convert -F scss -T sass src/scss/style.scss src/sass/style.sass
+ 
+    ディレクトリ内のファイルをまるごと変換したい場合は、オプション-Rを使用。
+      sass-convert -F sass -T scss src/sass src/scss -R
+      sass-convert -F scss -T sass src/scss src/sass -R
+
+
+      sass-convert -F sass -T scss . . -R
+
+
+      sass-convert -F sass -T scss sass scss -R
+      sass-convert -F sass -T scss sass scss -R
+
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      bulmaライブラリの変換（取り合えず勉強用❣）
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      [styles/フォルダで作業]
+      sass-convert -F sass -T scss ./bulma_v0.9.3 ./bulma_v0.9.3_scss -R
+        当然、styles\bulma_v0.9.3_scss\sass\の sass\はそのまま
+        styles\bulma_v0.9.3_scss\bulma.scssファイルの中身のパスもそのまま
+            @import "sass/utilities/_all";
+            @import "sass/base/_all";
+            @import "sass/elements/_all";
+            @import "sass/form/_all";
+            @import "sass/components/_all";
+            @import "sass/grid/_all";
+            @import "sass/helpers/_all";
+            @import "sass/layout/_all";
+
+      xcopy /S .\bulma_v0.9.3\css .\bulma_v0.9.3_scss\css\
+      [styles/index.scss]
+          // @import './bulma_v0.9.3/bulma.sass';
+          @import './bulma_v0.9.3_scss/bulma.scss';
+          @import './bulma-extensions.min.css';
+          @import './bulma-checkradio.min.css';
+          @import './bulma-tooltip.min.css';
+          @import './bulma-badge.min.css';
+
+
+
+
+
+
+
+  http://bashalog.c-brains.jp/16/11/30-120334.php
+
+    sass-convertコマンドで楽チン一括変換
+    > sass-convert -v
+    > sass-convert --help
+
+    オプション	説明
+      --from FORMAT	変換元のファイル形式。css、scss、sassの3種類。
+                    デフォルトでは入力ファイル名から自動設定。
+      --to FORMAT	  変換先のファイル形式。 scss、sassの2種類。
+                    デフォルトでは出力ファイル名から自動設定。
+      -R	          ファイルを再帰的に実行
+      --indent NUM	インデントのspaceの数を指定。デフォルトでは2space。
+                    ハードタブを指定したい場合は、t
+
+
+Usage: sass-convert [options] [INPUT] [OUTPUT]
+
+      Description:
+        Converts between CSS, indented syntax, and SCSS files. For example,
+        this can convert from the indented syntax to SCSS, or from CSS to
+        SCSS (adding appropriate nesting).
+
+      Common Options:
+          -F, --from FORMAT                The format to convert from. Can be css, scss, sass.
+                                          By default, this is inferred from the input filename.
+                                          If there is none, defaults to css.
+          -T, --to FORMAT                  The format to convert to. Can be scss or sass.
+                                          By default, this is inferred from the output filename.
+                                          If there is none, defaults to sass.
+          -i, --in-place                   Convert a file to its own syntax.
+                                          This can be used to update some deprecated syntax.
+          -R, --recursive                  Convert all the files in a directory. Requires --from and --to.
+          -?, -h, --help                   Show this help message.
+          -v, --version                    Print the Sass version.
+
+      Style:
+              --dasherize                  Convert underscores to dashes.
+              --indent NUM                 How many spaces to use for each level of indentation. Defaults to 2.
+                                          "t" means use hard tabs.
+              --old                        Output the old-style ":prop val" property syntax.
+                                          Only meaningful when generating Sass.
+
+      Input and Output:
+          -s, --stdin                      Read input from standard input instead of an input file.
+                                          This is the default if no input file is specified. Requires --from.
+          -E, --default-encoding ENCODING  Specify the default encoding for input files.
+              --unix-newlines              Use Unix-style newlines in written files.
+
+      Miscellaneous:
+              --cache-location PATH        The path to save parsed Sass files. Defaults to .sass-cache.
+          -C, --no-cache                   Don't cache to sassc files.
+          -q, --quiet                      Silence warnings and status messages during conversion.
+              --trace                      Show a full Ruby stack trace on error
+
+
+  フォルダごとまとめてSASSからSCSSにコンバート
+      sassディレクリ内にあるsass拡張子のファイルをscssに変換し、
+      scssディレクトリに出力してみます。
+
+      $ sass-convert -R --from sass --to scss sass scss
+
+
+https://www.webdesignleaves.com/pr/css/css_basic_08.html
+
+
+  [[Web Design Leaves]]
+
+  List 型（リスト/配列）
+      リストは値をカンマやスペース、カッコで区切ったものです。入れ子にすることで多次元配列も作成可能です。
+      以下は区切り文字が異なるだけで同じ内容のリストです。
+      $names : foo, bar, baz;
+      $names : foo bar baz;
+
+  Map 型（マップ/連想配列）
+    マップは任意の名前（キー）と値のペアが集まったものです。
+    $map: (key1: value1, key2: value2, key3: value3);
+    データタイプは type-of 関数で確認することができます。
+
+      type-of(100px)  => number
+      type-of(asdf)   => string
+      type-of("asdf") => string
+      type-of(true)   => bool
+      type-of(#fff)   => color
+      type-of(blue)   => color
+      type-of(null)   => null
+      $list: foo, bar, baz;
+      type-of($list)   => list
+      $map: (foo:100, bar:200, baz:300);
+      type-of($map)   => map
+
+
+@extend が使えるセレクタ
+  クラスセレクタ .foo など
+  タイプセレクタ div, p, a など
+  ID セレクタ #bar など
+  連結セレクタ .foo.bar など
+  属性セレクタ input[type=”radio”] など
+  疑似クラス :hover, :link など
+  疑似要素 :before, :after など
+
+@extend が使えないセレクタ
+  子孫セレクタ　.item p など
+  子セレクタ　#main > article など
+  隣接セレクタ　h2 + h3 など
+  間接セレクタ　h3 ~ h3 など
+
+
+ミックスイン @mixin
+  ミックスインは 
+    @mixin ディレクティブを用いて定義し、
+    @include ディレクティブで定義したミックスインを呼び出します。
+
+  ミックスインは引数を取ることができます。
+    引数の初期値を設定するには、変数  と同じ書式（名前は「$」から始め、「:」で区切って値を指定）で記述します。
+    「引数名：値」の形式で引数を指定すれば、順序を気にしないで必要な引数のみを渡すことができます。
+
+  * カンマ（,）を使うプロパティ
+    基本的にミックスインには引数１つに対して１つの値しか渡すことができません。
+    [box-shadow, text-shadow などのプロパティのようにカンマ区切りで複数の値を指定できるもの]
+      ・リストを使う 
+          回避策の１つはリストを使う方法です。複数の値を () で囲ってリスト（配列）にして１つの値として渡します。
+      ・可変長引数（Variable Arguments）を使う
+          もう一つの回避策は、可変長引数を使う方法です。可変長引数を使うには、引数の後に「...」（３つのドット）を記述します。
+                @mixin boxShadow($values...) {  //引数の後に ... を記述
+                  box-shadow: $values;
+                }
+  
+  * ミックスインの呼び出しに可変長引数を使う
+      ミックスインを呼び出す（@include する）際にも可変長引数を使うことができます。
+
+  ミックスインにコンテンツを渡す @content
+    @content はルールセットやスタイルなどのコンテンツ（内容）をミックスインに渡す機能です。
+
+    ミックスインを定義する際、渡されたコンテンツ（内容）を入れたい場所に @content を記述します。そして @include する際に波括弧 { } で括ってコンテンツ（内容）を記述すると、ミックスインで @content を記述した場所にそのコンテンツ（内容）が展開されます。
+
+
+
+補完(インターポレーション)
+    Sassは補完を行うための構文として #{} を用意しています。
+
+    変数に入った文字列は通常は値として認識されてエラーが出てしまうため、そのままだとプロパティの値にしか使用できませんが、 シャープ記号を前に置いた波括弧 #{}と組み合わせることでセレクタやプロパティ名にも使うことができるようになります。
+
+    演算しないようにする例
+      font: #{$font-size}/#{$line-height};  //演算しないようにする
+
+    演算できない場所で演算する例です。セレクタやプロパティ名に変数を使って演算をする場合に利用できます。
+      @for $i from 0 to 3 {
+        .marginTop#{$i * 10} {
+          margin-top: 10px * $i;
+        }
+      }
+
+
+
+制御構文（条件分岐・繰り返し）
+  Sassでは、条件分岐や繰り返し処理のための以下のような構文をサポートしています。
+
+  @if を使った条件分岐
+  if() 関数                         // if() は制御構文ではなく関数
+  @for を使った繰り返し処理
+              @for $変数名 from 開始の数値 through 終了の数値 {}
+              @for $変数名 from 開始の数値 to 終了の数値 {}
+  ＠while を使った繰り返し処理
+              @while 繰り返しを継続する条件 {}
+  @each でリストやマップの要素に繰り返し処理
+              リストは複数のデータ（値）をカンマやスペース、カッコで区切ったものです。以下はいずれも同じ値を持つリストです。
+              $list : foo, bar, baz;
+              $list : foo bar baz;
+              $list : (foo) (bar) (baz);
+
+              @each を使うと、リストの各要素に対して記述した処理を実行することができます。
+              @each $変数名 in リスト {
+                実行する処理
+              }
+
+              リストの n 番目の値を取得する nth() 関数とリストの中の特定の値のインデックスを返す index() 関数です。
+              nth() 関数
+              リスト（$list）の n 番目（$n）の値を取得する
+              書式： nth($list, $n)
+
+              index() 関数
+              リスト（$list）の中の特定の値（$value）のインデックスを返す
+              書式： index($list, $value)
+
+              @each でマップの要素に繰り返し処理
+
+              マップ  は任意の名前（キー）と値のペアが集まったものです。リストは値の集合ですが、マップはの各要素をコロン(:)区切りで名前（キー）と値のペアで記述した連想配列のようなものです。
+              リストとは異なり、括弧は省略できず、区切りもカンマに限られます。（Sass 3.3で追加）
+              $map: (
+                  key1: value1,  // key1にvalue1を設定
+                  key2: value2,
+                  key3: value3,
+              );
+              
+              //以下のように記述しても同じ
+              $map: (key1: value1, key2: value2, key3: value3,);
+              @each を使って、マップの各要素（キーと値）に対して処理を実行することができます。以下が構文です。
+
+              @each $キーの変数名, $値の変数名 in マップ {
+                実行する処理
+              }
+
+
+数値関連の関数（この他にもあります）
+    関数	          意味	               例
+    round($number)	小数点以下を四捨五入	round(10.6px) => 11px
+    ceil($number)	  小数点以下を切り上げ	ceil(10.4px) => 11px
+    floor($number)	小数点以下を切捨て	floor(10.6px) => 10px
+    abs($number)	  絶対値を返す	abs(-10px) => 10px
+    percentage($number)	パーセント形式に変換	percentage(100px / 50px) => 200%
+    min($numbers…)	最小の数値を返す	min(5em, 3em, 4em) => 3em
+    max($numbers…)	最大の数値を返す	max(5em, 3em, 4em) => 5em
+
+色関連の関数
+    関数	                    意味	              例
+    rgba($color, $alpha) 	    RGB値に透明度を指定	rgba(blue, 0.2) => rgba(0, 0, 255, 0.2)
+    lighten($color, $amount) 	明るい色を作成	    lighten(#800, 20%) => #e00
+    darken($color, $amount) 	暗い色を作成	      darken(hsl(25, 100%, 80%), 30%) => hsl(25, 100%, 50%)
+    mix($color1, $color2, [$weight]) 	中間色
+
+
+文字列関連の関数
+
+リスト（List）関連の関数
+    関数	          意味	                           例
+    length($list)	  項目数を取得	                   length(10px 20px 30px) => 3
+    nth($list, $n) 	n番目の項目を取得	                nth(10px 20px 30px, 1) => 10px
+    index($list, $value) 	項目が何番目にあるかを返す	index(1px solid red, solid) => 2
+    set-nth($list, $n, $value) 	n番目の要素を置き換え	set-nth(10px 20px 30px, 2, -20px) => 10px -20px 30px
+    join($list1, $list2, [$separator]) 	リストを結合	join(10px, (20px 30px)) => 10px 20px 30px
+    append($list1, $val, [$separator]) 	リストの末尾に追加	append((blue, red), green) => blue, red, green
+
+
+マップ（map）関連の関数
+    マップは任意の名前（キー）と値のペアが集まったものです。
+
+    キーと値のペアをコロン(:)区切りで記述します。また、リストとは異なり、括弧は省略できず、区切りもカンマに限られます。（Sass 3.3で追加）
+
+    マップの値は、データ型を問わずどのようなデータ型でも記述することができ、マップやリストを指定してネストすることも可能です。
+
+    map-get($map, $key) は指定したキー（$key）の値を取得します。
+        指定したキーが存在しない場合は、null（空の値）を返します。
+
+Introspection 関数
+        以下は、Introspection 関数の一部です。
+        関数	             意味	        例
+        inspect($value) 	デバッグ用	
+        type-of($value) 	値の型を返す	type-of(100px) => number

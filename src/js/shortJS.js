@@ -87,6 +87,7 @@ export const qcLm = (
 ) => {
 	ocLm(q(sel), { trgt: q(selT), cN }, mN, stopP)
 }
+export const qcLmethod = qcLm
 
 export const ocLm = (
 	o,
@@ -96,9 +97,11 @@ export const ocLm = (
 ) => {
 	oe(o, (e) => {
 		if (stopP) e.stopPropagation()
+		o.blur()
 		trgt.classList[mN](cN)
 	})
 }
+export const ocLmethod = ocLm
 
 export const oAcLm = (
 	o,

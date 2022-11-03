@@ -1,0 +1,40 @@
+.card {
+  position: relative;
+  background-color: #666;
+}
+
+.card img {
+  width: 100%;
+  display: block;
+  border: 2px solid #fff;
+  border-radius: 6px;
+}
+
+/* front of card - the picture */
+.card .front {
+  transition: all ease-in 0.2s;
+  /* transform: rotateY(77deg); */
+  transform: rotateY(90deg);
+  position: absolute;
+  /* .backにも付けるとカードの高さがなくなってしまう */
+  z-index: 10;
+  /* どちらが上でもよい・rotateY(90deg)で隠しているから */
+  /* displayは変化せず。 */
+}
+
+.flipped .front {
+  transform: rotateY(0deg);
+  transition-delay: 0.2s;
+}
+
+/* back of card - cover */
+.card .back {
+  transition: all ease-in 0.2s;
+  transition-delay: 0.2s;
+  /* position: absolute; こちらは付けないほうがいい */
+}
+
+.flipped .back {
+  transform: rotateY(90deg);
+  transition-delay: 0s;
+}

@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+
 import QuickView from './components/utils/QuickView'
+import Q1 from './assets/QRcode/QR_sansuu50.png'
+import Q2 from './assets/QRcode/QR_ninja50.png'
+import Q3 from './assets/QRcode/QR_ippatu111.png'
 import SingleCard from './components/SingleCard'
 
 const cardImages = [
@@ -144,6 +148,39 @@ function App() {
 					<span className="has-text-white ml-5">そのほかの ゲームアプリ</span>
 				</div>
 			</nav>
+
+			<div className="is-flex is-justify-content-space-around has-background-success f430_Q px-2 pt-5">
+				<figure>
+					<figcaption className="f430_Q1">さんすう入門</figcaption>
+					<img src={Q1} alt="URL: QR_sansuu50.png" />
+				</figure>
+				<figure>
+					<figcaption className="f430_Q2">しんけいすいじゃく</figcaption>
+					<img src={Q2} alt="URL: QR_ninja50.png" />
+				</figure>
+				<figure className="f430_Q3">
+					<figcaption>一発勝負 </figcaption>
+					<img src={Q3} alt="URL: QR_ippatu111.png" />
+				</figure>
+			</div>
+			<hr />
+			<div
+				className="has-background-grey-darker py-2 mt-6 f_center"
+				style={{ width: '100%' }}
+			>
+				<div className="is-size-5 has-text-danger has-tooltip-top px-3">
+					PWA機能対応版
+				</div>
+				<span>
+					<a
+						href="https://archmapp77.github.io/archmapp77-quickview/"
+						className="is-size-6 has-text-white has-tooltip-warning"
+						data-tooltip="インストール可能"
+					>
+						は<u>こちら</u>
+					</a>
+				</span>
+			</div>
 
 			<QuickView />
 		</>

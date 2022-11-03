@@ -1,0 +1,74 @@
+.App {
+  max-width: 660px;
+  /* max-width: 860px; */
+  margin: 1px auto;
+}
+
+.App h1 {
+  font-family: 'HG行書体',
+    'HGP行書体',
+    'HGS行書体',
+    'HGP教科書体',
+    'ＭＳ 明朝',
+    'Script',
+    serif;
+  font-size: 2rem;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+button {
+  background: #444;
+  border: 2px solid rgb(236, 132, 62);
+  padding: 2px 10px;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: .75em;
+  margin-bottom: 0px;
+}
+
+button:hover {
+  background: #c23866;
+  color: #fff;
+}
+
+.card-grid {
+  margin: 20px 10px 0 10px;
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+  grid-template-columns: minmax(55px, 1fr) minmax(55px, 1fr) minmax(55px, 1fr) minmax(55px, 1fr);
+  /* grid-template-columns: repeat(auto-fill, minmax(55px, 1fr)); */
+  grid-gap: 20px;
+}
+
+#orderB {
+  font-size: 1.2rem !important;
+}
+
+.h_hero {
+  padding: 15px 15px;
+}
+
+@media screen and (max-width: 705px) {
+  .h_hero {
+    padding: 10px 10px;
+    font-size: 0.9rem !important;
+  }
+
+  #orderB {
+    font-size: 1rem !important;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .h_hero {
+    padding: 7px 7px;
+    font-size: 0.6rem !important;
+  }
+
+  #orderB {
+    font-size: 0.75rem !important;
+  }
+}
